@@ -1,109 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📡 GNSS Analysis - RX1</title>
+    
+    <!-- LinkedIn Preview -->
+    <meta property="og:title" content="GNSS Analysis Dashboard - RX1" />
+    <meta property="og:description" content="Interactive satellite tracking & RTK analysis" />
+    <meta property="og:image" content="https://rajgauravjsr-bit.github.io/gnss-plots/RX1_skyplot_interactive.html" />
+    <meta property="og:url" content="https://rajgauravjsr-bit.github.io/gnss-plots/" />
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Segoe UI', sans-serif; 
+            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+            color: white; 
+            min-height: 100vh; 
+            padding: 20px;
+        }
+        .container { max-width: 1400px; margin: 0 auto; }
+        h1 { 
+            text-align: center; 
+            color: #00d4ff; 
+            font-size: 2.5em; 
+            margin-bottom: 30px;
+            text-shadow: 0 0 20px rgba(0,212,255,0.5);
+        }
+        .plots { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(600px, 1fr)); 
+            gap: 25px; 
+            margin-top: 30px;
+        }
+        .plot-card { 
+            background: rgba(255,255,255,0.1); 
+            border-radius: 15px; 
+            padding: 20px; 
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: transform 0.3s;
+        }
+        .plot-card:hover { transform: translateY(-5px); }
+        .plot-title { 
+            color: #00d4ff; 
+            margin-bottom: 15px; 
+            font-size: 1.3em;
+        }
+        iframe { 
+            width: 100%; 
+            height: 450px; 
+            border-radius: 10px; 
+            border: none;
+        }
+        .footer { 
+            text-align: center; 
+            margin-top: 40px; 
+            opacity: 0.8; 
+            font-size: 0.9em;
+        }
+        @media (max-width: 768px) {
+            .plots { grid-template-columns: 1fr; }
+            iframe { height: 350px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📡 GNSS Analysis Dashboard - RX1</h1>
+        <p style="text-align: center; margin-bottom: 30px; opacity: 0.9;">
+            Interactive Plotly Charts • RTK Position Analysis • Satellite Tracking
+        </p>
+        
+        <div class="plots">
 
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>GNSS Analysis Reports</title>
-        <style>
-            body {
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                margin: 0;
-                padding: 0;
-                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                min-height: 100vh;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-            .container {
-                max-width: 800px;
-                width: 90%;
-                background: white;
-                border-radius: 12px;
-                padding: 40px;
-                box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-            }
-            h1 {
-                color: #667eea;
-                text-align: center;
-                margin-bottom: 10px;
-                font-size: 2.5em;
-            }
-            .subtitle {
-                text-align: center;
-                color: #666;
-                margin-bottom: 40px;
-                font-size: 1.1em;
-            }
-            .reports {
-                list-style: none;
-                padding: 0;
-            }
-            .report-item {
-                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                margin-bottom: 15px;
-                border-radius: 8px;
-                overflow: hidden;
-                transition: transform 0.2s;
-            }
-            .report-item:hover {
-                transform: translateY(-2px);
-                box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            }
-            .report-item a {
-                display: block;
-                padding: 20px 30px;
-                color: white;
-                text-decoration: none;
-                font-size: 1.2em;
-                font-weight: 500;
-            }
-            .report-item a:hover {
-                background: rgba(255,255,255,0.1);
-            }
-            .date {
-                font-size: 0.9em;
-                opacity: 0.9;
-                margin-left: 10px;
-            }
-            .icon {
-                margin-right: 10px;
-            }
-            .footer {
-                text-align: center;
-                margin-top: 40px;
-                color: #666;
-                font-size: 0.9em;
-            }
-            .empty {
-                text-align: center;
-                padding: 40px;
-                color: #999;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <h1>📡 GNSS Analysis Reports</h1>
-            <p class="subtitle">Interactive Satellite Tracking & Position Analysis</p>
-            
-            <ul class="reports">
-    
-                <li class="report-item">
-                    <a href="2026-01-09/index.html">
-                        <span class="icon">📊</span>
-                        Report: 2026-01-09
-                        <span class="date">🕐 2026-01-09</span>
-                    </a>
-                </li>
-    
-            </ul>
-            
-            <div class="footer">
-                <p>🛰️ Powered by RAJ_GNSS_SkyMap | Interactive Plotly Charts</p>
+            <div class="plot-card">
+                <div class="plot-title">Skyplot Interactive</div>
+                <iframe src="RX1_skyplot_interactive.html" title="Skyplot Interactive"></iframe>
             </div>
+
+            <div class="plot-card">
+                <div class="plot-title">Satellite Count</div>
+                <iframe src="RX1_satellite_count.html" title="Satellite Count"></iframe>
+            </div>
+
+            <div class="plot-card">
+                <div class="plot-title">Position Scatter</div>
+                <iframe src="RX1_position_scatter.html" title="Position Scatter"></iframe>
+            </div>
+
+            <div class="plot-card">
+                <div class="plot-title">Threat Report</div>
+                <iframe src="RX1_threat_report.html" title="Threat Report"></iframe>
+            </div>
+
+            <div class="plot-card">
+                <div class="plot-title">Hdop Timeseries</div>
+                <iframe src="RX1_hdop_timeseries.html" title="Hdop Timeseries"></iframe>
+            </div>
+
         </div>
-    </body>
-    </html>
-    
+        <div class="footer">
+            <p>🛰️ RAJ_GNSS_SkyMap | Auto-generated 2026-01-09 03:43</p>
+        </div>
+    </div>
+</body>
+</html>
