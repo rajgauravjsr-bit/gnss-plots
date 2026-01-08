@@ -29,13 +29,13 @@
     <body>
         <div class="container">
             <h1>🛡️ GNSS Threat Analysis Report</h1>
-            <p><strong>Receiver:</strong> RX1 | <strong>Generated:</strong> 2026-01-09 03:43:35 IST</p>
+            <p><strong>Receiver:</strong> RX1 | <strong>Generated:</strong> 2026-01-09 03:54:42 IST</p>
             
             <h2>📊 Session Summary</h2>
             <div class="summary">
                 <div class="stat-card">
                     <div class="stat-label">Total Epochs</div>
-                    <div class="stat-value">82</div>
+                    <div class="stat-value">85</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-label">RTK Fixed</div>
@@ -43,7 +43,7 @@
                 </div>
                 <div class="stat-card">
                     <div class="stat-label">Avg Satellites</div>
-                    <div class="stat-value">26.1</div>
+                    <div class="stat-value">26.2</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-label">Avg HDOP</div>
@@ -57,10 +57,28 @@
             
             <h2>⚠️ Threat Detection Results</h2>
     
-            <div class="threat-summary threat-ok">
-                <strong>✅ No Threats Detected</strong><br>
-                No jamming, spoofing, cycle slips, or satellite loss events were detected during this session.
+            <div class="threat-summary threat-critical">
+                <strong>🚨 1 Threat(s) Detected:</strong> 1 satelliteloss
             </div>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Timestamp</th>
+                        <th>Type</th>
+                        <th>Message</th>
+                    </tr>
+                </thead>
+                <tbody>
+        
+                    <tr>
+                        <td>2026-01-09 22:22:46+00:00</td>
+                        <td><span class="threat-type satelliteloss">SATELLITELOSS</span></td>
+                        <td>Sudden satellite loss: 3 satellites</td>
+                    </tr>
+            
+                </tbody>
+            </table>
         
             <h2>📝 Interpretation Guide</h2>
             <ul>
