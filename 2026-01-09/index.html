@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GNSS Analysis - 2026-01-09</title>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="GNSS Analysis Report - 2026-01-09" />
+    <meta property="og:description" content="Interactive GNSS analysis: 0 avg sats" />
+    <meta property="og:image" content="https://avatars.githubusercontent.com/rajgauravjsr-bit" />
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; padding: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .container { max-width: 1400px; margin: 0 auto; background: white; border-radius: 12px; padding: 30px; box-shadow: 0 10px 40px rgba(0,0,0,0.2); }
+        h1 { color: #667eea; border-bottom: 3px solid #764ba2; padding-bottom: 10px; margin-bottom: 30px; }
+        .plots { display: grid; grid-template-columns: 1fr; gap: 30px; }
+        .plot-container { background: #f8f9fa; border-radius: 8px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        iframe { width: 100%; height: 600px; border: none; border-radius: 8px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📡 GNSS Analysis Report - 2026-01-09</h1>
+        <div class="plots">
+
+            <div class="plot-container">
+                <h2>Skyplot Interactive</h2>
+                <iframe src="RX1_skyplot_interactive.html"></iframe>
+            </div>
+
+            <div class="plot-container">
+                <h2>Satellite Count</h2>
+                <iframe src="RX1_satellite_count.html"></iframe>
+            </div>
+
+            <div class="plot-container">
+                <h2>Position Scatter</h2>
+                <iframe src="RX1_position_scatter.html"></iframe>
+            </div>
+
+            <div class="plot-container">
+                <h2>Threat Report</h2>
+                <iframe src="RX1_threat_report.html"></iframe>
+            </div>
+
+            <div class="plot-container">
+                <h2>Hdop Timeseries</h2>
+                <iframe src="RX1_hdop_timeseries.html"></iframe>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
