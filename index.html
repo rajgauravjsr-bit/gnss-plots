@@ -1,148 +1,109 @@
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GNSS Analysis - 2026-01-09</title>
-    <meta property="og:title" content="GNSS Analysis Report - 2026-01-09" />
-    <meta property="og:description" content="Interactive satellite tracking & position analysis for RX1" />
-    <meta property="og:image" content="https://rajgauravjsr-bit.github.io/gnss-plots/2026-01-09/preview.png" />
-    <meta property="og:url" content="https://rajgauravjsr-bit.github.io/gnss-plots/2026-01-09/" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: #333;
-        }
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 12px;
-            padding: 30px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-        }
-        h1 {
-            color: #667eea;
-            border-bottom: 3px solid #764ba2;
-            padding-bottom: 10px;
-            margin-bottom: 30px;
-        }
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-bottom: 40px;
-        }
-        .stat-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 20px;
-            border-radius: 8px;
-            text-align: center;
-        }
-        .stat-value {
-            font-size: 32px;
-            font-weight: bold;
-            margin: 10px 0;
-        }
-        .stat-label {
-            font-size: 14px;
-            opacity: 0.9;
-            text-transform: uppercase;
-        }
-        .plots {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 30px;
-        }
-        .plot-container {
-            background: #f8f9fa;
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-        .plot-container h2 {
-            color: #667eea;
-            margin-top: 0;
-        }
-        iframe {
-            width: 100%;
-            height: 600px;
-            border: none;
-            border-radius: 8px;
-        }
-        .footer {
-            margin-top: 40px;
-            text-align: center;
-            color: #666;
-            font-size: 14px;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>📡 GNSS Analysis Report - 2026-01-09</h1>
-        
-        <div class="stats">
-            <div class="stat-card">
-                <div class="stat-label">Receiver</div>
-                <div class="stat-value">RX1</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-label">Avg Satellites</div>
-                <div class="stat-value">0.0</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-label">RTK Fixed Epochs</div>
-                <div class="stat-value">0</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-label">Avg HDOP</div>
-                <div class="stat-value">0.00</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-label">Avg CN0</div>
-                <div class="stat-value">0.0 dB-Hz</div>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>GNSS Analysis Reports</title>
+        <style>
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                margin: 0;
+                padding: 0;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                min-height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .container {
+                max-width: 800px;
+                width: 90%;
+                background: white;
+                border-radius: 12px;
+                padding: 40px;
+                box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            }
+            h1 {
+                color: #667eea;
+                text-align: center;
+                margin-bottom: 10px;
+                font-size: 2.5em;
+            }
+            .subtitle {
+                text-align: center;
+                color: #666;
+                margin-bottom: 40px;
+                font-size: 1.1em;
+            }
+            .reports {
+                list-style: none;
+                padding: 0;
+            }
+            .report-item {
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                margin-bottom: 15px;
+                border-radius: 8px;
+                overflow: hidden;
+                transition: transform 0.2s;
+            }
+            .report-item:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            }
+            .report-item a {
+                display: block;
+                padding: 20px 30px;
+                color: white;
+                text-decoration: none;
+                font-size: 1.2em;
+                font-weight: 500;
+            }
+            .report-item a:hover {
+                background: rgba(255,255,255,0.1);
+            }
+            .date {
+                font-size: 0.9em;
+                opacity: 0.9;
+                margin-left: 10px;
+            }
+            .icon {
+                margin-right: 10px;
+            }
+            .footer {
+                text-align: center;
+                margin-top: 40px;
+                color: #666;
+                font-size: 0.9em;
+            }
+            .empty {
+                text-align: center;
+                padding: 40px;
+                color: #999;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>📡 GNSS Analysis Reports</h1>
+            <p class="subtitle">Interactive Satellite Tracking & Position Analysis</p>
+            
+            <ul class="reports">
+    
+                <li class="report-item">
+                    <a href="2026-01-09/index.html">
+                        <span class="icon">📊</span>
+                        Report: 2026-01-09
+                        <span class="date">🕐 2026-01-09</span>
+                    </a>
+                </li>
+    
+            </ul>
+            
+            <div class="footer">
+                <p>🛰️ Powered by RAJ_GNSS_SkyMap | Interactive Plotly Charts</p>
             </div>
         </div>
-        
-        <div class="plots">
-
-            <div class="plot-container">
-                <h2>Skyplot Interactive</h2>
-                <iframe src="RX1_skyplot_interactive.html" frameborder="0"></iframe>
-            </div>
-
-            <div class="plot-container">
-                <h2>Satellite Count</h2>
-                <iframe src="RX1_satellite_count.html" frameborder="0"></iframe>
-            </div>
-
-            <div class="plot-container">
-                <h2>Position Scatter</h2>
-                <iframe src="RX1_position_scatter.html" frameborder="0"></iframe>
-            </div>
-
-            <div class="plot-container">
-                <h2>Threat Report</h2>
-                <iframe src="RX1_threat_report.html" frameborder="0"></iframe>
-            </div>
-
-            <div class="plot-container">
-                <h2>Hdop Timeseries</h2>
-                <iframe src="RX1_hdop_timeseries.html" frameborder="0"></iframe>
-            </div>
-
-        </div>
-        
-        <div class="footer">
-            <p>🛰️ Generated by RAJ_GNSS_SkyMap | Interactive Plotly Charts</p>
-        </div>
-    </div>
-</body>
-</html>
+    </body>
+    </html>
+    
